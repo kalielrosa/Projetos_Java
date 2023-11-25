@@ -1,27 +1,16 @@
-import java.util.Scanner;  // Importe a classe Scanner
-
 public class Principal {
-
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        Agenda agenda = new Agenda(2);
+        FolhaDePagamento fp = new FolhaDePagamento();
 
-        for (int i = 0; i < 2; ++i) {
-            System.out.print("Digite o nome: ");
-            String nome = in.nextLine();
-            System.out.print("Digite a idade: ");
-            int idade = in.nextInt();
-            in.nextLine();
-            System.out.print("Digite o telefone: ");
-            long telefone = in.nextLong();
-            in.nextLine();
-            agenda.add(new Pessoa(nome, idade, telefone));
-        }
-        in.close();
+        Mensalista m1 = new Mensalista("Luiz", "123.456.786-34", 1500, 8);
+        Comissionado c1 = new Comissionado("Ana", "153.267.089-34", 2345, 245, 60);
+        Horista h1 = new Horista("Júlia", "536.678.253-22", 1200, 65, 4);
 
-        agenda.listarPessoas();
+        fp.adicionarAssalariado(m1);
+        fp.adicionarAssalariado(c1);
+        fp.adicionarAssalariado(h1);
 
-        System.out.println("Nome da Pessoa mais nova da agenda: ");
-        System.out.println(agenda.getNomeMaisNova());
+        fp.imprimirTotal();
+
     }
 }
