@@ -1,16 +1,20 @@
+
 public class Principal {
-    public static void main(String[] args) {
-        FolhaDePagamento fp = new FolhaDePagamento();
+    public static void main(String[] args){
+        
+        CadastroFrete cf = new CadastroFrete();
+        FretePadrao fp = new FretePadrao(10, 2);
+        FreteExpresso fe = new FreteExpresso(5, 6, 1);
+        FreteSuperExpresso fs = new FreteSuperExpresso(8, 3, 3, 16);
 
-        Mensalista m1 = new Mensalista("Luiz", "123.456.786-34", 1500, 8);
-        Comissionado c1 = new Comissionado("Ana", "153.267.089-34", 2345, 245, 60);
-        Horista h1 = new Horista("Júlia", "536.678.253-22", 1200, 65, 4);
+        cf.add(fp);
+        cf.add(fe);
+        cf.add(fs);
 
-        fp.adicionarAssalariado(m1);
-        fp.adicionarAssalariado(c1);
-        fp.adicionarAssalariado(h1);
+        double valorTotal = cf.calcularValorTotal();
 
-        fp.imprimirTotal();
+        System.out.println("Valor total dos fretes cadastrados: R$" + valorTotal);
 
+    
     }
 }
